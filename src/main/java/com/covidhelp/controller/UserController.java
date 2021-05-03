@@ -21,7 +21,7 @@ import com.covidhelp.model.NeedCovidHelpDto;
 
 
 @RestController
-@CrossOrigin(origins = { "https://covid-volunteer-v1.firebaseapp.com", "http://localhost:4200" })
+@CrossOrigin(origins = { "https://covid-volunteer-v1.firebaseapp.com", "http://localhost:4200","https://covid19-312519.firebaseapp.com" })
 
 @RequestMapping("/")
 public class UserController {
