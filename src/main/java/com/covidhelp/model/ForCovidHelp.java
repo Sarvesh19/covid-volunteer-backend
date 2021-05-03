@@ -1,5 +1,7 @@
 package com.covidhelp.model;
 
+import java.util.Date;
+
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -28,6 +30,7 @@ public class ForCovidHelp {
 	private String plasmaBloodGroup;
 	private Integer ventilatorCount;
 	private String zip;
+	private Date startDate;
 	
 	private String description;
 	
