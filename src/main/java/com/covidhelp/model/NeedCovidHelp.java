@@ -26,6 +26,7 @@ public class NeedCovidHelp {
 	private boolean isFoodSupplyHelp;
 	private boolean isMedicineHelp;
 	private boolean isFinancialHelp;
+	private boolean isBloodHelp;
 	private Integer bedCount;
 	private String plasmaBloodGroup;
 	private Integer ventilatorCount;
@@ -38,6 +39,12 @@ public class NeedCovidHelp {
 	
 	
 	
+	public boolean isBloodHelp() {
+		return isBloodHelp;
+	}
+	public void setBloodHelp(boolean isBloodHelp) {
+		this.isBloodHelp = isBloodHelp;
+	}
 	public String getDescription() {
 		return description;
 	}

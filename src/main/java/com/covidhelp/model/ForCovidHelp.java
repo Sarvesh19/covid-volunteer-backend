@@ -30,7 +30,7 @@ public class ForCovidHelp {
 	private String plasmaBloodGroup;
 	private Integer ventilatorCount;
 	private String zip;
-	private Date startDate;
+	private boolean isBloodHelp;
 	
 	private String description;
 	
@@ -40,6 +40,12 @@ public class ForCovidHelp {
 	
 	
 	
+	public boolean isBloodHelp() {
+		return isBloodHelp;
+	}
+	public void setBloodHelp(boolean isBloodHelp) {
+		this.isBloodHelp = isBloodHelp;
+	}
 	public String getDescription() {
 		return description;
 	}

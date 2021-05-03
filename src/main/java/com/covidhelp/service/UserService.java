@@ -46,6 +46,8 @@ public class UserService {
 					needHelp.setOxygenHelp(true);
 				} else if (x.equals("Financial")) {
 					needHelp.setFinancialHelp(true);
+				} else if(x.equals("Blood")){
+					needHelp.setBloodHelp(true);
 				} else {
 					needHelp.setOtherHelp(true);
 				}
@@ -87,8 +89,11 @@ public class UserService {
 					forHelp.setOxygenHelp(true);
 				} else if (x.equals("Financial")) {
 					forHelp.setFinancialHelp(true);
+				} else  if(x.equals("Blood")){
+					forHelp.setBloodHelp(true);
 				} else {
 					forHelp.setOtherHelp(true);
+
 				}
 			});
 
