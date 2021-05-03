@@ -1,5 +1,7 @@
 package com.covidhelp.service;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +21,7 @@ public class UserService {
 
 	@Autowired
 	private ForCovidHelpRepository forCovidHelpRepository;
-	
+
 	public boolean seekHelp(NeedCovidHelpDto needCovidHelpDto) {
 
 		try {
@@ -46,7 +48,7 @@ public class UserService {
 					needHelp.setOxygenHelp(true);
 				} else if (x.equals("Financial")) {
 					needHelp.setFinancialHelp(true);
-				} else if(x.equals("Blood")){
+				} else if (x.equals("Blood")) {
 					needHelp.setBloodHelp(true);
 				} else {
 					needHelp.setOtherHelp(true);
@@ -62,7 +64,7 @@ public class UserService {
 		return false;
 
 	}
-	
+
 	public boolean forHelp(NeedCovidHelpDto needCovidHelpDto) {
 
 		try {
@@ -89,7 +91,7 @@ public class UserService {
 					forHelp.setOxygenHelp(true);
 				} else if (x.equals("Financial")) {
 					forHelp.setFinancialHelp(true);
-				} else  if(x.equals("Blood")){
+				} else if (x.equals("Blood")) {
 					forHelp.setBloodHelp(true);
 				} else {
 					forHelp.setOtherHelp(true);
@@ -106,16 +108,44 @@ public class UserService {
 		return false;
 
 	}
-	
-	public List<NeedCovidHelp> getAllHelp(){
-		
-		return needCovidHelpRepository.findAll();
-	}
-	
-	public List<ForCovidHelp> getAllOffer(){
-		
-		return forCovidHelpRepository.findAll();
+
+	static class SortByDate implements Comparator<NeedCovidHelp> {
+		@Override
+		public int compare(NeedCovidHelp a, NeedCovidHelp b) {
+			 if(a.getNeedHelpId().getDate().before(b.getNeedHelpId().getDate())) {
+				 return 1;
+			 }
+			 return -1;
+		}
 	}
 
+	static class SortByDateForHelp implements Comparator<ForCovidHelp> {
+		@Override
+		public int compare(ForCovidHelp a, ForCovidHelp b) {
+			 if(a.getHelperId().getDate().before(b.getHelperId().getDate())){
+				 return 1;
+			 } 
+             return -1;
+
+		}
+	}
+
+	public List<NeedCovidHelp> getAllHelp() {
+
+		List<NeedCovidHelp> list = needCovidHelpRepository.findAll();
+
+		Collections.sort(list, new SortByDate());
+
+		return list;
+	}
+
+	public List<ForCovidHelp> getAllOffer() {
+
+		List<ForCovidHelp> list = forCovidHelpRepository.findAll();
+
+		Collections.sort(list, new SortByDateForHelp());
+
+		return list;
+	}
 
 }

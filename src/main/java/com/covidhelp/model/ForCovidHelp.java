@@ -33,6 +33,7 @@ public class ForCovidHelp {
 	private boolean isBloodHelp;
 	
 	private String description;
+	private Date addedTime;
 	
 	
 	
@@ -40,6 +41,13 @@ public class ForCovidHelp {
 	
 	
 	
+	
+	public Date getAddedTime() {
+		return addedTime;
+	}
+	public void setAddedTime(Date addedTime) {
+		this.addedTime = addedTime;
+	}
 	public boolean isBloodHelp() {
 		return isBloodHelp;
 	}
